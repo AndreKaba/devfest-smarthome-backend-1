@@ -1,0 +1,9 @@
+machine:
+  java:
+    version: oraclejdk7
+deployment:
+  appengine:
+    branch: master
+    commands:
+      - erb .appcfg_oauth2_tokens_java.json > ~/.appcfg_oauth2_tokens_java
+      - ./gradlew appengineUpdate
