@@ -57,7 +57,7 @@ appengine {
 buildConfig {
     sourceSets {
         main {
-            packageName = 'cz.gug.webapi'
+            packageName = 'org.developersgarage.hub'
         }
     }
 }

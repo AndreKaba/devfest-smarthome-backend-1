@@ -1,4 +1,4 @@
-package cz.gug.webapi;
+package org.developersgarage.hub;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;

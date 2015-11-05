@@ -1,4 +1,4 @@
-package cz.gug.webapi;
+package org.developersgarage.hub;
 
 /**
  * Created by jacktech24 on 18.10.15.
