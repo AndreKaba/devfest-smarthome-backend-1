@@ -58,7 +58,6 @@ buildConfig {
     sourceSets {
         main {
             packageName = 'cz.gug.webapi'
-            buildConfigField "String", "MEETUP_API_KEY", System.getenv('MEETUP_API_KEY') != null ? System.getenv('MEETUP_API_KEY') : MEETUP_API_KEY
         }
     }
 }
