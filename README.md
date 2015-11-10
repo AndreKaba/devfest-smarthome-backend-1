@@ -1,5 +1,4 @@
-# Developers Garage Hub API
-API for Developers Garage HUB
+# DevFest SmartHome Backend
 
 ## Deployment to App Engine
 run :appengineUpdate gradle task
