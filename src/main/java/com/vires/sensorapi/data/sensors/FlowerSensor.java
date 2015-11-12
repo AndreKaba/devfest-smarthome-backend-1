@@ -1,7 +1,9 @@
 package com.vires.sensorapi.data.sensors;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.vires.sensorapi.data.admin.HomePlace;
 
 /**
  * @author Filip Prochazka (jacktech24)
@@ -12,15 +14,11 @@ public class FlowerSensor {
 
     @Id
     private Long id;
+    private Ref<HomePlace> place;
     private String name;
-    private String place;
+    private String location;
 
     public FlowerSensor() {
-    }
-
-    public FlowerSensor(String name, String place) {
-        this.name = name;
-        this.place = place;
     }
 
     public Long getId() {
@@ -39,11 +37,19 @@ public class FlowerSensor {
         this.name = name;
     }
 
-    public String getPlace() {
-        return place;
+    public String getLocation() {
+        return location;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setPlace(HomePlace place) {
+        this.place = Ref.create(place);
+    }
+
+    public HomePlace getPlace() {
+        return place.get();
     }
 }
