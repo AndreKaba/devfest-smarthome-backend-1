@@ -1,7 +1,10 @@
-package com.vires.sensorapi;
+package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
+import com.vires.sensorapi.Constants;
+import com.vires.sensorapi.HelloGreeting;
+import com.vires.sensorapi.SensorData;
 
 import java.util.List;
 

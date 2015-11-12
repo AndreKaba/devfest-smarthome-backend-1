@@ -1,6 +1,8 @@
 package com.vires.sensorapi;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.vires.sensorapi.objects.FLowerData;
+import com.vires.sensorapi.objects.WeatherData;
 
 import javax.servlet.http.HttpServlet;
 
@@ -11,6 +13,8 @@ public class StartupServlet extends HttpServlet {
 
     static {
         ObjectifyService.register(SensorData.class);
+        ObjectifyService.register(WeatherData.class);
+        ObjectifyService.register(FLowerData.class);
     }
 
 }
