@@ -2,12 +2,8 @@ package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.appengine.repackaged.com.google.common.base.Flag;
 import com.vires.sensorapi.Constants;
-import com.vires.sensorapi.objects.Responds;
-import com.vires.sensorapi.objects.WeatherData;
-
-import java.util.ArrayList;
+import com.vires.sensorapi.objects.*;
 import java.util.List;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
@@ -37,4 +33,65 @@ public class SenzorEndpoint {
     public List<WeatherData> retrieveWeatherInfo(){
         return ofy().load().type(WeatherData.class).list();
     }
+
+    @ApiMethod
+    public Responds flowerInfo(FLowerData data){
+        try{
+            ofy().save().entity(data).now();
+            return new Responds(true);
+        } catch (Exception e){
+            return new Responds(false);
+        }
+    }
+
+    @ApiMethod
+    public List<FLowerData> retrieveFlowerInfo(){
+        return ofy().load().type(FLowerData.class).list();
+    }
+
+    @ApiMethod
+    public Responds motionInfo(MotionSensors data){
+        try{
+            ofy().save().entity(data).now();
+            return new Responds(true);
+        } catch (Exception e){
+            return new Responds(false);
+        }
+    }
+
+    @ApiMethod
+    public List<MotionSensors> retrieveMotionInfo(){
+        return ofy().load().type(MotionSensors.class).list();
+    }
+
+    @ApiMethod
+    public Responds consumptionInfo(PowerConsumption data){
+        try{
+            ofy().save().entity(data).now();
+            return new Responds(true);
+        } catch (Exception e){
+            return new Responds(false);
+        }
+    }
+
+    @ApiMethod
+    public Float retrieveConsumtion(Long sensor){
+        List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).filter("sensor",sensor).list();
+        Float sum = (float) 0;
+        for(int i = 0; i< sensors.size();i++){
+            sum += sensors.get(i).getConsumption();
+        }
+        return sum / sensors.size();
+    }
+
+    @ApiMethod
+    public Float retrieveOverallConsumtion() {
+        List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).list();
+        Float sum = (float) 0;
+        for (int i = 0; i < sensors.size(); i++) {
+            sum += sensors.get(i).getConsumption();
+        }
+        return sum / sensors.size();
+    }
+
 }
