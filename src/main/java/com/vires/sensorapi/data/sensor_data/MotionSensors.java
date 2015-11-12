@@ -1,10 +1,11 @@
-package com.vires.sensorapi.objects;
+package com.vires.sensorapi.data.sensor_data;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 /**
- @author Ondrej Kaba (AndreKaba)
+ * @author Ondrej Kaba (AndreKaba)
+ * @author Filip Prochazka (jacktech24)
  */
 @Entity
 public class MotionSensors {

@@ -1,13 +1,14 @@
-package com.vires.sensorapi.objects;
+package com.vires.sensorapi.data.sensor_data;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 /**
- @author Ondrej Kaba (AndreKaba)
+ * @author Ondrej Kaba (AndreKaba)
+ * @author Filip Prochazka (jacktech24)
  */
 @Entity
-public class PowerConsumption {
+public class PowerConsumption implements Comparable<PowerConsumption> {
 
     @Id
     private Long id;
@@ -54,5 +55,10 @@ public class PowerConsumption {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public int compareTo(PowerConsumption o) {
+        return timestamp.compareTo(o.getTimestamp());
     }
 }

@@ -13,7 +13,7 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.vires.sensorapi.endpoints.HelloEndpoint, com.vires.sensorapi.endpoints.SenzorEndpoint</param-value>
+            <param-value>com.vires.sensorapi.endpoints.AdminEndpoint, com.vires.sensorapi.endpoints.DataEndpoint</param-value>
         </init-param>
     </servlet>
     <servlet>
