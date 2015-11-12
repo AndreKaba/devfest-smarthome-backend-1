@@ -1,9 +1,7 @@
 package com.vires.sensorapi.objects;
 
-import com.google.appengine.repackaged.com.google.common.base.Flag;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
-import com.sun.javafx.beans.IDProperty;
 
 /**
  @author Ondrej Kaba (AndreKaba)

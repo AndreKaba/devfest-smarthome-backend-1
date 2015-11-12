@@ -2,6 +2,7 @@ package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.Named;
 import com.vires.sensorapi.util.Constants;
 import com.vires.sensorapi.objects.*;
 import java.util.List;
@@ -75,7 +76,7 @@ public class SenzorEndpoint {
     }
 
     @ApiMethod
-    public Float retrieveConsumtion(Long sensor){
+    public Float retrieveConsumtion(@Named Long sensor){
         List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).filter("sensor",sensor).list();
         Float sum = (float) 0;
         for(int i = 0; i< sensors.size();i++){
