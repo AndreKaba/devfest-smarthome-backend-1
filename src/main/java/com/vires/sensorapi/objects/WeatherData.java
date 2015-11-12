@@ -6,7 +6,7 @@ import com.googlecode.objectify.annotation.Id;
 import com.sun.javafx.beans.IDProperty;
 
 /**
- * @author OKaba
+ @author Ondrej Kaba (AndreKaba)
  */
 @Entity
 public class WeatherData {

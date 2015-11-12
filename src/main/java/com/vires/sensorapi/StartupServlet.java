@@ -1,7 +1,7 @@
 package com.vires.sensorapi;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.vires.sensorapi.objects.FLowerData;
+import com.vires.sensorapi.objects.FlowerData;
 import com.vires.sensorapi.objects.MotionSensors;
 import com.vires.sensorapi.objects.PowerConsumption;
 import com.vires.sensorapi.objects.WeatherData;
@@ -16,7 +16,7 @@ public class StartupServlet extends HttpServlet {
     static {
         ObjectifyService.register(SensorData.class);
         ObjectifyService.register(WeatherData.class);
-        ObjectifyService.register(FLowerData.class);
+        ObjectifyService.register(FlowerData.class);
         ObjectifyService.register(MotionSensors.class);
         ObjectifyService.register(PowerConsumption.class);
     }

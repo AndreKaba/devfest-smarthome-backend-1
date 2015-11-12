@@ -1,7 +1,7 @@
-package com.vires.sensorapi;
+package com.vires.sensorapi.util;
 
 /**
- * Created by jacktech24 on 18.10.15.
+ * @author Filip Prochazka (jacktech24)
  */
 public class Constants {
     public static final String WEB_CLIENT_ID = "replace this with your web client ID";

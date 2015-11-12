@@ -1,7 +1,7 @@
 package com.vires.sensorapi;
 
 /**
- * Created by jacktech24 on 18.10.15.
+ * @author Filip Prochazka (jacktech24)
  */
 public class HelloGreeting {
 

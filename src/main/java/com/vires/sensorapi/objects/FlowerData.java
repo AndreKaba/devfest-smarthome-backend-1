@@ -4,20 +4,20 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 /**
- * @author Okaba
+ * @author Ondrej Kaba (AndreKaba)
  */
 @Entity
-public class FLowerData {
+public class FlowerData {
 
     @Id
     private Long id;
     private Long flower;
     private Float humidity;
 
-    public FLowerData() {
+    public FlowerData() {
     }
 
-    public FLowerData(Long flower, Float humidity) {
+    public FlowerData(Long flower, Float humidity) {
         this.flower = flower;
         this.humidity = humidity;
     }

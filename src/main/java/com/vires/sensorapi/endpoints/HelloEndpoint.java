@@ -2,7 +2,7 @@ package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.vires.sensorapi.Constants;
+import com.vires.sensorapi.util.Constants;
 import com.vires.sensorapi.HelloGreeting;
 import com.vires.sensorapi.SensorData;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
 /**
- * Created by jacktech24 on 18.10.15.
+ * @author Filip Prochazka (jacktech24)
  */
 
 @Api(name = "helloworld",

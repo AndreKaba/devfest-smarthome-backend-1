@@ -2,7 +2,7 @@ package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.vires.sensorapi.Constants;
+import com.vires.sensorapi.util.Constants;
 import com.vires.sensorapi.objects.*;
 import java.util.List;
 
@@ -10,7 +10,7 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 
 
 /**
- * @author Okaba
+ * @author Ondrej Kaba (AndreKaba)
  */
 
 @Api(name = "senzors",
@@ -20,12 +20,12 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 )
 public class SenzorEndpoint {
     @ApiMethod
-    public Responds weatherInfo(WeatherData data){
+    public Response weatherInfo(WeatherData data){
         try {
             ofy().save().entity(data).now();
-            return new Responds(true);
+            return new Response(true);
         } catch (Exception e){
-            return new Responds(false);
+            return new Response(false);
         }
     }
 
@@ -35,27 +35,27 @@ public class SenzorEndpoint {
     }
 
     @ApiMethod
-    public Responds flowerInfo(FLowerData data){
+    public Response flowerInfo(FlowerData data){
         try{
             ofy().save().entity(data).now();
-            return new Responds(true);
+            return new Response(true);
         } catch (Exception e){
-            return new Responds(false);
+            return new Response(false);
         }
     }
 
     @ApiMethod
-    public List<FLowerData> retrieveFlowerInfo(){
-        return ofy().load().type(FLowerData.class).list();
+    public List<FlowerData> retrieveFlowerInfo(){
+        return ofy().load().type(FlowerData.class).list();
     }
 
     @ApiMethod
-    public Responds motionInfo(MotionSensors data){
+    public Response motionInfo(MotionSensors data){
         try{
             ofy().save().entity(data).now();
-            return new Responds(true);
+            return new Response(true);
         } catch (Exception e){
-            return new Responds(false);
+            return new Response(false);
         }
     }
 
@@ -65,12 +65,12 @@ public class SenzorEndpoint {
     }
 
     @ApiMethod
-    public Responds consumptionInfo(PowerConsumption data){
+    public Response consumptionInfo(PowerConsumption data){
         try{
             ofy().save().entity(data).now();
-            return new Responds(true);
+            return new Response(true);
         } catch (Exception e){
-            return new Responds(false);
+            return new Response(false);
         }
     }
 

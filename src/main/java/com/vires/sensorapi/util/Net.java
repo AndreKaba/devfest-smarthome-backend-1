@@ -1,4 +1,4 @@
-package com.vires.sensorapi;
+package com.vires.sensorapi.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 /**
- * Created by jacktech24 on 19.10.15.
+ * @author Filip Prochazka (jacktech24)
  */
 public class Net {
 
