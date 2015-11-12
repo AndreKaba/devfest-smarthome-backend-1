@@ -1,6 +1,6 @@
 package com.vires.sensorapi.data.admin;
 
-import com.google.appengine.repackaged.com.google.type.LatLng;
+import com.google.appengine.api.datastore.GeoPt;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
@@ -13,12 +13,12 @@ public class HomePlace {
     @Id
     private Long id;
     private String name;
-    private LatLng location;
+    private GeoPt location;
 
     public HomePlace() {
     }
 
-    public HomePlace(String name, LatLng location) {
+    public HomePlace(String name, GeoPt location) {
         this.name = name;
         this.location = location;
     }
@@ -39,11 +39,11 @@ public class HomePlace {
         this.name = name;
     }
 
-    public LatLng getLocation() {
+    public GeoPt getLocation() {
         return location;
     }
 
-    public void setLocation(LatLng location) {
+    public void setLocation(GeoPt location) {
         this.location = location;
     }
 }
