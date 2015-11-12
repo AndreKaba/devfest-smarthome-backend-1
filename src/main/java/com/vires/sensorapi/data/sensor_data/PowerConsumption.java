@@ -1,7 +1,9 @@
 package com.vires.sensorapi.data.sensor_data;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.vires.sensorapi.data.sensors.PowerConsumptionSensor;
 
 /**
  * @author Ondrej Kaba (AndreKaba)
@@ -12,17 +14,11 @@ public class PowerConsumption implements Comparable<PowerConsumption> {
 
     @Id
     private Long id;
-    private Long sensor;
+    private Ref<PowerConsumptionSensor> sensor;
     private Float consumption;
     private Long timestamp;
 
     public PowerConsumption() {
-    }
-
-    public PowerConsumption(Long sensor, Float consumption, Long timestamp) {
-        this.sensor = sensor;
-        this.consumption = consumption;
-        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -33,12 +29,12 @@ public class PowerConsumption implements Comparable<PowerConsumption> {
         this.id = id;
     }
 
-    public Long getSensor() {
-        return sensor;
+    public PowerConsumptionSensor getSensor() {
+        return sensor.get();
     }
 
-    public void setSensor(Long sensor) {
-        this.sensor = sensor;
+    public void setSensor(PowerConsumptionSensor sensor) {
+        this.sensor = Ref.create(sensor);
     }
 
     public Float getConsumption() {

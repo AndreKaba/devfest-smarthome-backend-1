@@ -7,6 +7,7 @@ import com.vires.sensorapi.data.sensor_data.FlowerData;
 import com.vires.sensorapi.data.sensor_data.MotionSensors;
 import com.vires.sensorapi.data.sensor_data.PowerConsumption;
 import com.vires.sensorapi.data.sensor_data.WeatherData;
+import com.vires.sensorapi.data.sensors.PowerConsumptionSensor;
 import com.vires.sensorapi.util.Constants;
 import com.vires.sensorapi.objects.*;
 import java.util.List;
@@ -81,7 +82,7 @@ public class DataEndpoint {
     }
 
     @ApiMethod
-    public SensorPowerConsumption retrieveConsumtion(@Named Long sensor){
+    public SensorPowerConsumption retrieveConsumtion(PowerConsumptionSensor sensor){
         List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).filter("sensor", sensor).list();
         return SensorPowerConsumption.from(sensors);
     }
