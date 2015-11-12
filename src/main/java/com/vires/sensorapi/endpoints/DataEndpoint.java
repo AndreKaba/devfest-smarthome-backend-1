@@ -85,15 +85,5 @@ public class DataEndpoint {
         List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).filter("sensor", sensor).list();
         return SensorPowerConsumption.from(sensors);
     }
-
-    @ApiMethod
-    public Float retrieveOverallConsumtion() {
-        List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).list();
-        Float sum = (float) 0;
-        for (int i = 0; i < sensors.size(); i++) {
-            sum += sensors.get(i).getConsumption();
-        }
-        return sum / sensors.size();
-    }
-
+    
 }
