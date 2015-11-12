@@ -1,8 +1,4 @@
-// If you would like more information on the gradle-appengine-plugin please refer to the github page
-// https://github.com/GoogleCloudPlatform/gradle-appengine-plugin
-
 buildscript {
-    ext.kotlin_version = '1.0.0-beta-1038'
     repositories {
         jcenter()
         maven {
@@ -13,7 +9,6 @@ buildscript {
     dependencies {
         classpath 'com.google.appengine:gradle-appengine-plugin:1.9.26'
         classpath "gradle.plugin.de.fuerstenau:BuildConfigPlugin:1.0.5"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -23,7 +18,6 @@ repositories {
 }
 
 apply plugin: 'java'
-apply plugin: 'kotlin'
 apply plugin: 'war'
 apply plugin: 'appengine'
 apply plugin: "de.fuerstenau.buildconfig"
@@ -40,7 +34,6 @@ dependencies {
     compile 'com.ganyo:gcm-server:1.0.2'
     compile 'joda-time:joda-time:2.8.2'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 appengine {
@@ -60,7 +53,4 @@ buildConfig {
             packageName = 'org.developersgarage.hub'
         }
     }
-}
-sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
 }
