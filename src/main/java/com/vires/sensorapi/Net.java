@@ -1,4 +1,4 @@
-package org.developersgarage.hub;
+package com.vires.sensorapi;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;

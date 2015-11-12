@@ -13,8 +13,13 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>org.developersgarage.hub.HelloEndpoint</param-value>
+            <param-value>com.vires.sensorapi.HelloEndpoint</param-value>
         </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>StartupServlet</servlet-name>
+        <servlet-class>com.vires.sensorapi.StartupServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>SystemServiceServlet</servlet-name>

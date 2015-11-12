@@ -1,7 +1,11 @@
-package org.developersgarage.hub;
+package com.vires.sensorapi;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
+
+import java.util.List;
+
+import static com.googlecode.objectify.ObjectifyService.ofy;
 
 /**
  * Created by jacktech24 on 18.10.15.
@@ -18,6 +22,17 @@ public class HelloEndpoint {
     public HelloGreeting greeting() {
         HelloGreeting response = new HelloGreeting("hello world");
         return response;
+    }
+
+    @ApiMethod
+    public SensorData insertData(SensorData data) {
+        ofy().save().entity(data).now();
+        return data;
+    }
+
+    @ApiMethod
+    public List<SensorData> retrieveSensorData() {
+        return ofy().load().type(SensorData.class).list();
     }
 
 }
