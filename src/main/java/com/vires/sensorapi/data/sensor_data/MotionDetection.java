@@ -8,17 +8,17 @@ import com.googlecode.objectify.annotation.Id;
  * @author Filip Prochazka (jacktech24)
  */
 @Entity
-public class MotionSensors {
+public class MotionDetection {
 
     @Id
     private Long id;
     private Long sensor;
     private Long timestamp;
 
-    public MotionSensors() {
+    public MotionDetection() {
     }
 
-    public MotionSensors(Long sensor, Long timestamp) {
+    public MotionDetection(Long sensor, Long timestamp) {
         this.sensor = sensor;
         this.timestamp = timestamp;
     }

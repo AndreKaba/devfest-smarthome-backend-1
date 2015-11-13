@@ -2,11 +2,11 @@ package com.vires.sensorapi.endpoints;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.Named;
 import com.vires.sensorapi.data.sensor_data.FlowerData;
-import com.vires.sensorapi.data.sensor_data.MotionSensors;
+import com.vires.sensorapi.data.sensor_data.MotionDetection;
 import com.vires.sensorapi.data.sensor_data.PowerConsumption;
 import com.vires.sensorapi.data.sensor_data.WeatherData;
+import com.vires.sensorapi.data.sensors.FlowerSensor;
 import com.vires.sensorapi.data.sensors.PowerConsumptionSensor;
 import com.vires.sensorapi.util.Constants;
 import com.vires.sensorapi.objects.*;
@@ -52,12 +52,12 @@ public class DataEndpoint {
     }
 
     @ApiMethod
-    public List<FlowerData> retrieveFlowerInfo(){
-        return ofy().load().type(FlowerData.class).list();
+    public List<FlowerData> retrieveFlowerInfo(FlowerSensor flower){
+        return ofy().load().type(FlowerData.class).filter("flower", flower).list();
     }
 
     @ApiMethod
-    public Response motionInfo(MotionSensors data){
+    public Response motionInfo(MotionDetection data){
         try{
             ofy().save().entity(data).now();
             return new Response(true);
@@ -67,9 +67,7 @@ public class DataEndpoint {
     }
 
     @ApiMethod
-    public List<MotionSensors> retrieveMotionInfo(){
-        return ofy().load().type(MotionSensors.class).list();
-    }
+    public List<MotionDetection> retrieveMotionInfo() { return ofy().load().type(MotionDetection.class).list(); }
 
     @ApiMethod
     public Response consumptionInfo(PowerConsumption data){
@@ -82,8 +80,14 @@ public class DataEndpoint {
     }
 
     @ApiMethod
-    public SensorPowerConsumption retrieveConsumtion(PowerConsumptionSensor sensor){
+    public SensorPowerConsumption retrieveConsumption(PowerConsumptionSensor sensor){
         List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).filter("sensor", sensor).list();
+        return SensorPowerConsumption.from(sensors);
+    }
+
+    @ApiMethod
+    public SensorPowerConsumption retrieveOverallConstumption(){
+        List<PowerConsumption> sensors = ofy().load().type(PowerConsumption.class).list();
         return SensorPowerConsumption.from(sensors);
     }
     

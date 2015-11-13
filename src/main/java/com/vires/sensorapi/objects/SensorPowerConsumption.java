@@ -15,9 +15,16 @@ public class SensorPowerConsumption {
     private Long dateTo;
 
     private SensorPowerConsumption(List<PowerConsumption> list) {
-        Collections.sort(list);
-
-    }
+        setDateFrom(Long.MAX_VALUE);
+        setDateFrom(Long.MIN_VALUE);
+        Float cons = (float) 0;
+        for(int i = 0; i<list.size(); i++){
+            if (list.get(i).getTimestamp()<dateFrom) setDateFrom(list.get(i).getTimestamp());
+            if (list.get(i).getTimestamp()>dateTo) setDateTo(list.get(i).getTimestamp());
+            cons += list.get(i).getConsumption();
+        }
+        setTotalConsumption((cons/list.size())*(dateTo-dateFrom)*3600000); // recorded consumption / number of entries - avg consumption
+    }                                                                      // *seconds in timespan (J) -> *3600000 (KWh)
 
     public static SensorPowerConsumption from(List<PowerConsumption> sensors) {
         return new SensorPowerConsumption(sensors);
@@ -33,5 +40,17 @@ public class SensorPowerConsumption {
 
     public Long getDateTo() {
         return dateTo;
+    }
+
+    public void setTotalConsumption(Float totalConsumption) {
+        this.totalConsumption = totalConsumption;
+    }
+
+    public void setDateFrom(Long dateFrom) {
+        this.dateFrom = dateFrom;
+    }
+
+    public void setDateTo(Long dateTo) {
+        this.dateTo = dateTo;
     }
 }
