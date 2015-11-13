@@ -18,13 +18,12 @@ public class SensorPowerConsumption {
     private SensorPowerConsumption(List<PowerConsumption> list) {
         Collections.sort(list);
         setDateFrom(list.get(0).getTimestamp());
-        setDateTo(list.get(list.size()-1).getTimestamp());
+        setDateTo(list.get(list.size()-2).getTimestamp());
         Float consumption = (float) 0;
-        for(int i = 0; i<list.size()-1;i++){
+        for(int i = 0; i<list.size()-2;i++){
             Long timespan = list.get(i+1).getTimestamp()-list.get(i).getTimestamp();
             consumption += (list.get(i).getConsumption()*timespan)/3600000;
         }
-        consumption += list.get(list.size()-1).getConsumption()/3600000;
         setTotalConsumption(consumption);
     }
 
