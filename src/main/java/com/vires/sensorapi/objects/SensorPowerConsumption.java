@@ -3,7 +3,6 @@ package com.vires.sensorapi.objects;
 import com.vires.sensorapi.data.sensor_data.PowerConsumption;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
